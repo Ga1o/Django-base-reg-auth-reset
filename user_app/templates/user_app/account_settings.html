@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<div class="col-3">
+    <h1>Account settings</h1>
+    <hr>
+    <br>
+</div>
+
+<div class="col-3">
+    <h2>Account data</h2>
+    <h4>Name: {{ user.username }}</h4>
+    <h4>Email: {{ user.email }}</h4>
+    <hr>
+    <br>
+</div>
+
+<div class="col-3">
+    <h2>Change password</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-outline-success w-100">Change</button>
+        <hr>
+        <br>
+    </form>
+</div>
+
+<a href="{% url 'user_app:logout' %}" class="btn btn-outline-danger col-3 mt-2">Logout</a>
+
+{% endblock %}

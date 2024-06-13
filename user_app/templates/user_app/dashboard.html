@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<div class="d-flex align-items-center">
+<h1>Dashboard | {{ user.first_name }} |</h1>
+<a href="{% url 'user_app:account_settings' %}" class="btn btn-outline-dark ms-2">Settings</a>
+</div>
+
+
+{% endblock %}

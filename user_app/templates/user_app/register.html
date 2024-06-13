@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<div class="row w-100 d-flex justify-content-center">
+
+<h1 class="text-center">Registration page</h1>
+
+<form method="post" class="col-3 mt-4">
+
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-outline-success w-100">Register</button>
+    <a href="{% url 'user_app:login' %}" class="btn btn-outline-primary mt-2 w-100">Login</a>
+
+</form>
+</div>
+{% endblock %}
